@@ -27,13 +27,13 @@ public class RolesController {
     }
 
     @PostMapping("/addToUser")
-    public ResponseEntity<Role> addRoleToUser(@RequestBody RoleToUserForm form) {
+    public ResponseEntity<?> addRoleToUser(@RequestBody RoleToUserForm form) {
         roleService.addRoleToUser(form.getUsername(), form.getRoleName());
         return ResponseEntity.ok().build();
     }
 
     @Data
-    class RoleToUserForm {
+    static class RoleToUserForm {
         private String username;
         private String roleName;
     }
